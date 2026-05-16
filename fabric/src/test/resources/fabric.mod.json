@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "test_debug_renderer",
+  "version": "1.0.0",
+  "name": "Test Debug Renderer",
+  "description": "A Test Mod of Debug Renderer",
+  "authors": [
+    "playgamesgo",
+    "mattw",
+    "flamgop"
+  ],
+  "contact": {
+    "website": "https://github.com/playgamesgo/PlayMcDebugRenderer",
+    "repo": "https://github.com/playgamesgo/PlayMcDebugRenderer"
+  },
+  "license": "MIT",
+  "icon": "assets/test_debug_renderer/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "server": [
+      "me.playgamesgo.debug.demo.DemoServer"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.2",
+    "fabric": "*",
+    "minecraft": "1.21.11"
+  }
+}

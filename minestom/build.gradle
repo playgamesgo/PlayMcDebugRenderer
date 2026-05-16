@@ -3,29 +3,35 @@ plugins {
     id 'maven-publish'
 }
 
-group 'com.mattworzala.debug'
-version '1.19.2'
+group 'me.playgamesgo.debug'
+version = '1.0.0'
 
 repositories {
     mavenCentral()
-    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    compileOnly 'net.minestom:minestom-snapshots:1_20_5-e63c9def24'
+    implementation project(':common')
 
-    testImplementation 'net.minestom:minestom-snapshots:1_20_5-e63c9def24'
+    compileOnly 'net.minestom:minestom:2026.05.11-1.21.11'
+    testImplementation 'net.minestom:minestom:2026.05.11-1.21.11'
 }
 
 java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
     withSourcesJar()
-//    withJavadocJar()
+    withJavadocJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
 }
 
 publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+            artifactId = 'minestom'
         }
     }
 }
