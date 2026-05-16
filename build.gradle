@@ -1,4 +1,7 @@
 subprojects {
+    group = project.hasProperty('group') ? project.group : 'me.playgamesgo'
+    version = project.hasProperty('version') ? project.version : '1.0.0-SNAPSHOT'
+
     repositories {
         mavenCentral()
     }
