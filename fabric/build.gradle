@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation include(project(':common'))
+    api project(':common')
 
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
@@ -63,10 +63,18 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             artifactId = 'fabric'
-
             artifact(remapJar) { builtBy remapJar }
             artifact(remapSourcesJar) { builtBy remapSourcesJar }
             artifact(javadocJar) { builtBy javadocJar }
+
+            pom.withXml {
+                def deps = asNode().appendNode('dependencies')
+                def dep = deps.appendNode('dependency')
+                dep.appendNode('groupId', 'com.github.playgamesgo.PlayMcDebugRenderer')
+                dep.appendNode('artifactId', 'common')
+                dep.appendNode('version', project.version)
+                dep.appendNode('scope', 'compile')
+            }
         }
     }
 }
