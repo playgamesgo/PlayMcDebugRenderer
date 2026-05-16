@@ -9,6 +9,7 @@ repositories {
 
 dependencies {
     api project(':common')
+    implementation include(project(":common"))
 
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
@@ -85,4 +86,8 @@ loom {
             vmArgs "-ea"
         }
     }
+}
+
+tasks.withType(AbstractTestTask).configureEach {
+    failOnNoDiscoveredTests = false
 }
