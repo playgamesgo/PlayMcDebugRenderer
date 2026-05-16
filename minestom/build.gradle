@@ -30,17 +30,8 @@ tasks.withType(JavaCompile).configureEach {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifactId = 'minestom'
             from components.java
-
-            pom.withXml {
-                def deps = asNode().appendNode('dependencies')
-                def dep = deps.appendNode('dependency')
-                dep.appendNode('groupId', project.group)
-                dep.appendNode('artifactId', 'common')
-                dep.appendNode('version', project.version)
-                dep.appendNode('scope', 'compile')
-            }
+            artifactId = 'minestom'
         }
     }
 }
