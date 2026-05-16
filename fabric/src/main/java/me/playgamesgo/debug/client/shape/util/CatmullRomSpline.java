@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Credit to Moulberry's BuilderMod.
  *
- * @see <min href="https://github.com/Moulberry/BuilderMod/blob/master/remappedSrc/codes/moulberry/buildermod/CatmullRomSpline.java">CatmullRomSpline.java</min>
+ * @see <a href="https://github.com/Moulberry/BuilderMod/blob/master/remappedSrc/codes/moulberry/buildermod/CatmullRomSpline.java">CatmullRomSpline.java</a>
  */
 public final class CatmullRomSpline {
     private static float tj(float ti, Vec3d p1, Vec3d p2, float alpha) {
